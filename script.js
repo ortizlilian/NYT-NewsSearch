@@ -1,19 +1,13 @@
-// $("button").on("click", function() {
-// get the id name of the search button
+$(".searchBtn").on("click", function() {
   
-    // let searchTerm = $(".searchTerm").val();
-    // let numberRecords = $(".numberRecords").val();
-    // let startYear = $(".startYear").val();
-    // let endYear = $(".endYear").val();
+    let searchTerm = $(".searchTerm").val();
+    let numberRecords = $(".numberRecords").val();
+    let startYear = $(".startYear").val();
+    let endYear = $(".endYear").val();
 
 
-    // let apiKey = 'mL4xkOC4g5YsgMhD0NXUQ33AGnerRi6W'
-    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=finance&fq=source:(%22The%20New%20York%20Times%22)&begin_date=20220101&end_date=20230126&fq=coding&page=5&sort=newest&api-key=e6HGKf3D9XB4mlYWfTND3jMydbGGLxOq"
-    
-    //"https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + "?" +"&api-key=" + apiKey;
-
-    //"https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&fq=source:(%22The%20New%20York%20Times%22)&api-key=e6HGKf3D9XB4mlYWfTND3jMydbGGLxOq"
-
+    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q="+ searchTerm +"&fq=source:(%22The%20New%20York%20Times%22)&begin_date="+ startYear +"&end_date="+ endYear +"&fq=coding&page="+ numberRecords +"&sort=newest&api-key=e6HGKf3D9XB4mlYWfTND3jMydbGGLxOq"
+  
 
     $.ajax({
         url: queryURL,
@@ -29,19 +23,14 @@
         results.forEach(function(element) {
 
             let newsDiv = $('<div>');
-            let newsTitle = $(`<h1>${results.headline}</h1?`);
+            let newsTitle = $(`<h1>${element.headline}</h1?`);
             
-            let newsSnippet = $(`<p>${results.snippet}</h2>`);
+            let newsSnippet = $(`<p>${element.snippet}</h2>`);
 
             newsDiv.append(newsTitle, newsSnippet);
             $(".articles").append(newsDiv);
-            //
+           
         });
 
-
-
-
-
-
     });
-// });
+});
