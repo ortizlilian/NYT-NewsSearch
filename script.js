@@ -34,7 +34,7 @@
             let newsSnippet = $(`<p>${results.snippet}</h2>`);
 
             newsDiv.append(newsTitle, newsSnippet);
-            $(".articles")
+            $(".articles").append(newsDiv);
             //
         });
 
