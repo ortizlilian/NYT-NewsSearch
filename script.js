@@ -21,6 +21,8 @@
     }).then(function(response) {
         console.log(response);
 
+        $(".articles").empty();
+
         let results = response.response.docs;
         console.log(results);
 
