@@ -8,7 +8,6 @@ $(".searchBtn").on("click", function() {
 
     var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q="+ searchTerm +"&fq=source:(%22The%20New%20York%20Times%22)&begin_date="+ startYear +"&end_date="+ endYear +"&fq=coding&page="+ numberRecords +"&sort=newest&api-key=e6HGKf3D9XB4mlYWfTND3jMydbGGLxOq"
   
-
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -33,4 +32,8 @@ $(".searchBtn").on("click", function() {
         });
 
     });
+});
+
+$(".clearBtn").on("click", function() {
+    $(".articles").empty();
 });
