@@ -30,7 +30,7 @@
 
             let newsDiv = $('<div>');
             let newsTitle = $(`<h1>${results.headline}</h1?`);
-            // let newsCategory = $(`<h2>${results.snippet}</h2>`);
+            
             let newsSnippet = $(`<p>${results.snippet}</h2>`);
 
             newsDiv.append(newsTitle, newsSnippet);
