@@ -22,11 +22,12 @@ $(".searchBtn").on("click", function() {
         results.forEach(function(element) {
 
             let newsDiv = $('<div>');
-            let newsTitle = $(`<h1>${element.headline}</h1?`);
-            
-            let newsSnippet = $(`<p>${element.snippet}</h2>`);
+            let newsTitle = $(`<h3>${element.headline.main}</h3>`);
+            console.log(element.headline.main);            
+            let newsSnippet = $(`<p>${element.snippet}</p>`);
+            let newsLink = $(`<a href=${element.web_url} target="_blank">Read More</a>`);
 
-            newsDiv.append(newsTitle, newsSnippet);
+            newsDiv.append(newsTitle, newsSnippet, newsLink);
             $(".articles").append(newsDiv);
            
         });
