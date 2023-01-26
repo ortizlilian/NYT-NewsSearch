@@ -17,12 +17,13 @@
 
 
     <container class="searchP" style="width: 1000px;">
+
         <h1>Search Parameters</h1>
         <div>
             <h2>Search Term</h2>
             <input type="text" class="searchTerm">  
-
         </div>
+
         <div>
             <h2>Number of Records to Retrieve</h2>
             <div class="container mt-3">
@@ -46,15 +47,19 @@
             <h2>End Year (Optional)</h2>
             <input type="text" class="endYear"> 
         </div>
+
+        <button class="searchBtn">Search</button>
+        <button class="clearBtn">Clear</button>
         
-<div>
-    
+<div class="articles">
+<h1>Top Articles</h1>
 </div>
 
         
     </container>
 
-    <script src="./script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="script.js"></script>
 
     <!--
         Jumbotron for top banner. Include Icon and Title (bootstrap)
