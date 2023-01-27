@@ -1,21 +1,21 @@
+$( function() {
+    $( ".startYear" ).datepicker();
+    $( ".endYear" ).datepicker();
+} );
 
-
-console.log($(".startYear").val());
-console.log($(".endYear").val());
 $(".searchBtn").on("click", function() {
   
     let searchTerm = $(".searchTerm").val();
     let numberRecords = $(".numberRecords").val();
-
-
-    let today = moment().format('YYYYMMDD');
-
-    let startYear = ($(".startYear").val() === '') ? 20180101 : $(".startYear").val();
     
-    let endYear = ($(".endYear").val() === '') ? today : $(".endYear").val();
+    let startYear = ($(".startYear").val() === '') ? 
+        20180101 : 
+        (moment($(".startYear").val(), "MM/DD/YYYY").format('YYYYMMDD'));   
     
-
-
+    let endYear = ($(".endYear").val() === '') ? 
+        moment().format('YYYYMMDD') : 
+        (moment($(".endYear").val(), "MM/DD/YYYY").format('YYYYMMDD'));
+        
     var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q="+ searchTerm +"&fq=source:(%22The%20New%20York%20Times%22)&begin_date="+ startYear +"&end_date="+ endYear +"&fq=coding&page="+ numberRecords +"&sort=newest&api-key=e6HGKf3D9XB4mlYWfTND3jMydbGGLxOq"
       
     $.ajax({
@@ -41,10 +41,10 @@ $(".searchBtn").on("click", function() {
             $(".articles").append(newsDiv);
            
         });
-
-    });
+    });    
 });
 
 $(".clearBtn").on("click", function() {
     $(".articles").empty();
+    $("input").val('');
 });
