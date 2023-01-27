@@ -1,3 +1,7 @@
+
+
+console.log($(".startYear").val());
+console.log($(".endYear").val());
 $(".searchBtn").on("click", function() {
   
     let searchTerm = $(".searchTerm").val();
@@ -6,10 +10,10 @@ $(".searchBtn").on("click", function() {
 
     let today = moment().format('YYYYMMDD');
 
-    let startYear = ($(".startYear").val() === '') ? Number(20180101) : $(".startYear").val();
+    let startYear = ($(".startYear").val() === '') ? 20180101 : $(".startYear").val();
     
-    let endYear = ($(".endYear").val() === '') ? Number(today) : $(".endYear").val();
-    console.log(endYear);
+    let endYear = ($(".endYear").val() === '') ? today : $(".endYear").val();
+    
 
 
     var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q="+ searchTerm +"&fq=source:(%22The%20New%20York%20Times%22)&begin_date="+ startYear +"&end_date="+ endYear +"&fq=coding&page="+ numberRecords +"&sort=newest&api-key=e6HGKf3D9XB4mlYWfTND3jMydbGGLxOq"
